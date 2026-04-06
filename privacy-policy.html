@@ -129,16 +129,20 @@
 
     .hidden { display: none; }
 
-    /* Content links */
+    /* Content links — light mode */
     section a {
-      color: #1a1a2e;
+      color: #1a1a2e !important;
       font-weight: bold;
       text-decoration: underline;
     }
 
+    /* Content & footer links — dark mode: ALL white, no blue */
     @media (prefers-color-scheme: dark) {
       section a {
-        color: #ffffff;
+        color: #ffffff !important;
+      }
+      footer a {
+        color: #ffffff !important;
       }
     }
   </style>
@@ -243,7 +247,7 @@
       <section>
         <h2>11. Επικοινωνία</h2>
         <p>Για ερωτήσεις σχετικά με το απόρρητο:</p>
-        <p><strong>Email:</strong> <a href="mailto:support@fiouri.com">support@fiouri.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@fiouri.com">info@fiouri.com</a></p>
         <p><strong>Εφαρμογή:</strong> Fiouri</p>
       </section>
     </div>
@@ -336,7 +340,7 @@
       <section>
         <h2>11. Contact</h2>
         <p>For privacy-related questions:</p>
-        <p><strong>Email:</strong> <a href="mailto:support@fiouri.com">support@fiouri.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@fiouri.com">info@fiouri.com</a></p>
         <p><strong>Developer:</strong> Fiouri</p>
       </section>
     </div>
