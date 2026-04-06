@@ -1,9 +1,10 @@
 # MyShift v2.0 — Complete Project Backup
 
-> Generated: 2026-04-06
+> Generated: 2026-04-06 (updated)
 > Version: 2.0.0 (Build 1)
-> Developer: Fiouri (support@fiouri.com)
+> Developer: Any WeCon (info@anywecon.com)
 > Package: com.anywecon.myshift
+> GitHub: https://github.com/Fiouri/myshift
 
 ---
 
@@ -13,8 +14,9 @@ MyShift v2.0 is a **complete rewrite** of the MyShift app — a React Native (Ex
 
 - **Target Audience:** Greek hourly workers (waiters, cleaners, warehouse workers, delivery, retail, etc.)
 - **Platform:** Android-first, offline-first, built for budget phones
-- **Developer:** Fiouri
-- **Contact:** support@fiouri.com
+- **Developer:** Any WeCon
+- **Contact:** info@anywecon.com
+- **GitHub:** https://github.com/Fiouri/myshift
 - **Phase:** Phase 1 — Foundation (complete)
 
 ---
@@ -202,8 +204,8 @@ F:\Projects\MyShift\
 - **Package:** `com.anywecon.myshift`
 
 ### Privacy Policy
-- **URL:** `https://fiouri.github.io/myshift/privacy-policy.html`
-- **Support Email:** `support@fiouri.com`
+- **URL:** `https://fiouri.github.io/myshift/privacy-policy.html` *(LIVE)*
+- **Contact Email:** `info@anywecon.com`
 - **Play Store:** `https://play.google.com/store/apps/details?id=com.anywecon.myshift`
 
 ---
@@ -264,7 +266,7 @@ F:\Projects\MyShift\
 
 ### Calculations (100% Greek Labor Law Compliant)
 - [x] **Hours Breakdown** — Regular (≤8h), Overwork (9th hour), Overtime (10th+)
-- [x] **Night Hours** — 22:00-06:00 with midnight crossing + pro-rata break distribution
+- [x] **Night Hours** — 22:00-06:00 with midnight crossing + pro-rata break distribution (break deducted proportionally from night/regular hours)
 - [x] **Premiums** — Cumulative stacking: night +25%, Sunday/holiday +75%, Saturday fixed +30% or rotating +40%
 - [x] **Overwork Premium** — 9th hour: +20% (Ν.4808/2021)
 - [x] **Overtime Premium** — 10th+ hour: +40% (≤150h/year) or +60% (>150h/year)
@@ -280,6 +282,7 @@ F:\Projects\MyShift\
 - [x] **Settings** — Profile rate mode with equivalent display
 - [x] **Conversion functions** — `grossToNet()` and `netToGross()` in calculations.ts
 - [x] **DB always stores GROSS** — Net entered → converted to gross before storage
+- [x] **Equivalent display** — Shows the other mode's amount (e.g., "≈ €4.57 net") on all rate inputs
 
 ### UI/UX
 - [x] **Dark Mode** — Full light/dark/system theme with WCAG AA contrast ratios
@@ -894,8 +897,10 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 
 ## 20. PRIVACY POLICY
 
-- **URL:** https://fiouri.github.io/myshift/privacy-policy.html
+- **URL:** https://fiouri.github.io/myshift/privacy-policy.html *(LIVE)*
 - **Location:** `docs/privacy-policy.html`
+- **Developer:** Any WeCon
+- **Contact:** info@anywecon.com
 - **Languages:** Greek + English (bilingual)
 - **GDPR Compliance:** Yes
 - **Data Collection:**
@@ -969,6 +974,10 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 5. **New Architecture:** `newArchEnabled: true` may cause issues with some third-party libraries
 6. **CSV Export:** Uses Greek column headers only (not localized)
 
+### Resolved Bugs (v2.0)
+- [x] **Night-hours pro-rata break fix** — Break minutes now deducted proportionally between night and regular hours instead of all from regular
+- [x] **weekEntries sync fix** — HomeScreen weekEntries now sync correctly when navigating back from DailyEntry
+
 ---
 
 ## 24. VERSION HISTORY
@@ -976,7 +985,8 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 | Version | Date | Notes |
 |---------|------|-------|
 | v1.x | 2025 | Original app: same Supabase, same AdMob, same EAS project |
-| v2.0.0 | 2026 | Complete rewrite: Expo SDK 54, React 19, RN 0.81, new calculation engine, new UI |
+| v2.0.0 | 2026-04-04 | Complete rewrite: Expo SDK 54, React 19, RN 0.81, new calculation engine, new UI |
+| v2.0.0 | 2026-04-06 | Bug fixes: night-hours pro-rata break, weekEntries sync. Gross/net toggle complete. Privacy policy live. |
 
 ---
 
@@ -995,10 +1005,15 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 
 ## 26. NEXT STEPS
 
+### Latest APK Build
+- **URL:** https://expo.dev/accounts/fiouri/projects/GreekPayrollApp/builds/38bafd60-8ce2-4d73-a76a-756d3a6b5939
+- **Profile:** preview (internal APK)
+- **Status:** Available for testing
+
 ### Immediate (v2.0 → Play Store)
-1. Run `npx tsc --noEmit` — verify 0 errors
-2. Run `npx jest` — verify all 106 tests pass
-3. Run `eas build --profile preview` — test APK on device
+1. ~~Run `npx tsc --noEmit` — verify 0 errors~~ ✅
+2. ~~Run `npx jest` — verify all 106 tests pass~~ ✅
+3. ~~Run `eas build --profile preview` — test APK on device~~ ✅ (see link above)
 4. Run `eas build --profile production` — production AAB
 5. Create Play Store listing (screenshots, description, icon)
 6. Submit via `eas submit --profile production`
