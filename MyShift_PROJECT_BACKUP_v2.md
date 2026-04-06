@@ -2,7 +2,7 @@
 
 > Generated: 2026-04-06
 > Version: 2.0.0 (Build 1)
-> Developer: Any WeCon (support@anywecon.com)
+> Developer: Fiouri (support@fiouri.com)
 > Package: com.anywecon.myshift
 
 ---
@@ -13,8 +13,8 @@ MyShift v2.0 is a **complete rewrite** of the MyShift app — a React Native (Ex
 
 - **Target Audience:** Greek hourly workers (waiters, cleaners, warehouse workers, delivery, retail, etc.)
 - **Platform:** Android-first, offline-first, built for budget phones
-- **Developer:** Any WeCon
-- **Contact:** support@anywecon.com
+- **Developer:** Fiouri
+- **Contact:** support@fiouri.com
 - **Phase:** Phase 1 — Foundation (complete)
 
 ---
@@ -202,8 +202,8 @@ F:\Projects\MyShift\
 - **Package:** `com.anywecon.myshift`
 
 ### Privacy Policy
-- **URL:** `https://anywecon.github.io/myshift/privacy-policy.html`
-- **Support Email:** `support@anywecon.com`
+- **URL:** `https://fiouri.github.io/myshift/privacy-policy.html`
+- **Support Email:** `support@fiouri.com`
 - **Play Store:** `https://play.google.com/store/apps/details?id=com.anywecon.myshift`
 
 ---
@@ -894,7 +894,7 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 
 ## 20. PRIVACY POLICY
 
-- **URL:** https://anywecon.github.io/myshift/privacy-policy.html
+- **URL:** https://fiouri.github.io/myshift/privacy-policy.html
 - **Location:** `docs/privacy-policy.html`
 - **Languages:** Greek + English (bilingual)
 - **GDPR Compliance:** Yes
