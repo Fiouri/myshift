@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShift - Shift Tracking for Greek Workers</title>
+  <style>
+    :root {
+      --primary: #1B5E9E;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --border: #334155;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 520px;
+    }
+
+    .icon {
+      width: 96px;
+      height: 96px;
+      background: var(--primary);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 48px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      transition: opacity 0.2s;
+    }
+
+    .cta:hover { opacity: 0.9; }
+
+    .links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .links a:hover { text-decoration: underline; }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="icon">&#128188;</div>
+    <h1>MyShift</h1>
+    <p class="tagline">Shift tracking & pay calculation for Greek hourly workers</p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">&#9201;</div>
+        <h3>Track Shifts</h3>
+        <p>Log start/end times, breaks, and day types</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#128176;</div>
+        <h3>Auto-Calculate</h3>
+        <p>Overtime, night, weekend premiums per Greek law</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#128202;</div>
+        <h3>Reports</h3>
+        <p>Monthly & yearly reports with PDF/CSV export</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#9878;</div>
+        <h3>Know Your Rights</h3>
+        <p>Greek labor law explained simply</p>
+      </div>
+    </div>
+
+    <a class="cta" href="https://play.google.com/store/apps/details?id=com.anywecon.myshift">
+      Get it on Google Play
+    </a>
+
+    <div class="links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="mailto:support@anywecon.com">Contact</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Any WeCon. Made with love in Greece.</p>
+    </footer>
+  </div>
+</body>
+</html>
