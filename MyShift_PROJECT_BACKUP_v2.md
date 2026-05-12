@@ -1,10 +1,11 @@
 # MyShift v2.0 — Complete Project Backup
 
-> Generated: 2026-04-06 (updated)
-> Version: 2.0.0 (Build 1)
-> Developer: Any WeCon (info@anywecon.com)
-> Package: com.anywecon.myshift
+> Generated: 2026-04-20 (updated)
+> Version: 2.0.0 (versionCode 6)
+> Developer: Any WeCon (fiouri.work@gmail.com)
+> Package: com.anywecon.myshiftapp
 > GitHub: https://github.com/Fiouri/myshift
+> Privacy Policy: https://fiouri.github.io/myshift/privacy-policy.html (LIVE)
 
 ---
 
@@ -15,9 +16,9 @@ MyShift v2.0 is a **complete rewrite** of the MyShift app — a React Native (Ex
 - **Target Audience:** Greek hourly workers (waiters, cleaners, warehouse workers, delivery, retail, etc.)
 - **Platform:** Android-first, offline-first, built for budget phones
 - **Developer:** Any WeCon
-- **Contact:** info@anywecon.com
+- **Contact:** fiouri.work@gmail.com
 - **GitHub:** https://github.com/Fiouri/myshift
-- **Phase:** Phase 1 — Foundation (complete)
+- **Phase:** Phase 6 — Consistency & Polish (complete); Play Store submission pending
 
 ---
 
@@ -143,7 +144,8 @@ F:\Projects\MyShift\
         └── greekHolidays.ts           — Orthodox Easter (Meeus), 14 public holidays, holiday lookup
 ```
 
-**Total: 72 files | ~12,834 lines of code** (excluding node_modules, .git, package-lock.json)
+**Total: 72 files | ~13,000 lines of code** (excluding node_modules, .git, package-lock.json)
+**Screens total: 8,731 lines across 14 screens**
 
 ---
 
@@ -201,12 +203,18 @@ F:\Projects\MyShift\
 - **Owner:** fiouri
 - **Slug:** GreekPayrollApp (from v1, backward compatible)
 - **Project ID:** `e18bd7bc-0bc6-4c92-9fbb-67a4f0eb953a`
-- **Package:** `com.anywecon.myshift`
+- **Package:** `com.anywecon.myshiftapp` *(chosen for Play Store: v1 slug kept for EAS continuity, com.anywecon.myshiftapp is the final Play Store applicationId)*
+
+### Keystore (Play Store signing)
+- **Connected to EAS project:** ✅
+- **SHA1 fingerprint:** `57:DD:CC:96:...` (stored remotely in EAS, never committed)
+- **Managed via:** `eas credentials`
+- **Status:** Locked in — do NOT regenerate (would brick Play Store updates)
 
 ### Privacy Policy
 - **URL:** `https://fiouri.github.io/myshift/privacy-policy.html` *(LIVE)*
-- **Contact Email:** `info@anywecon.com`
-- **Play Store:** `https://play.google.com/store/apps/details?id=com.anywecon.myshift`
+- **Contact Email:** `fiouri.work@gmail.com`
+- **Play Store:** `https://play.google.com/store/apps/details?id=com.anywecon.myshiftapp`
 
 ---
 
@@ -329,7 +337,11 @@ F:\Projects\MyShift\
 
 ## 7. PENDING FEATURES
 
-- [ ] **Play Store Submission** — First production AAB build + store listing
+- [x] **Play Store AAB Build** — versionCode 6 production AAB ready for upload ✅
+- [x] **Play Store Listing Prep** — `docs/play-store-listing.md` bilingual (EL+EN) ✅
+- [x] **Privacy Policy Live** — https://fiouri.github.io/myshift/privacy-policy.html ✅
+- [x] **Keystore Configured** — SHA1 57:DD:CC:96:... locked in EAS ✅
+- [ ] **Play Store Submission** — Upload AAB + screenshots + publish to production track
 - [ ] **Multi-Employer Support** — Track shifts for multiple employers
 - [ ] **RevenueCat Integration** — In-app purchases for premium features
 - [ ] **Date Picker** — Native date/time picker instead of text input
@@ -681,22 +693,24 @@ Net: €1,056.00 - €141.19 = €914.81
 
 ## 12. APP SCREENS
 
+> **Note:** ALL screen titles shown στα Ελληνικά μέσω i18n via React Navigation header (`t('entry.title')`, `t('calendar.title')`, etc.). In-screen duplicate titles have been removed from LegalInfoScreen and CalculatorScreen to avoid visual duplication with the native header.
+
 | # | Screen | Lines | Description |
 |---|--------|-------|-------------|
-| 1 | HomeScreen | 319 | Dashboard: greeting, monthly summary, weekly stats, overtime progress, profile card, FAB |
-| 2 | CalendarScreen | 484 | Monthly calendar grid with navigation, entry indicators, holidays, monthly footer |
-| 3 | DailyEntryScreen | 673 | Full shift entry/edit form: presets, time, break, day type, notes, live calculation, save/delete |
+| 1 | HomeScreen | 333 | Dashboard: greeting, monthly summary, weekly stats, overtime progress, profile card (paddingRight fix), FAB. useFocusEffect refresh on return. |
+| 2 | CalendarScreen | 588 | Monthly grid + holidays + entry indicators. "Σήμερα" quick-jump button, swipe gesture navigation (Gesture.Pan), future months unlocked with preview label. useFocusEffect refresh after save. |
+| 3 | DailyEntryScreen | 665 | Shift entry/edit form: presets, time, break, day type, notes, live calc, save/delete. Dirty-flag fix (skipDirtyCheck ref), no false "unsaved changes" after Save. |
 | 4 | ReportsScreen | 395 | Monthly report: days/hours/earnings summary, hours breakdown bar chart, PDF/CSV export |
 | 5 | YearlyReportScreen | 454 | Yearly report: 12-month table, totals, overtime progress, yearly PDF export |
 | 6 | OnboardingScreen | 551 | 3-slide intro (FlatList pager) + profile setup form with gross/net toggle |
-| 7 | CalculatorScreen | 366 | Standalone what-if calculator: rate, time, break, day type, schedule, result |
-| 8 | BonusesScreen | 441 | Christmas/Easter/Vacation bonus calculators with expandable step breakdown |
-| 9 | LegalInfoScreen | 199 | FAQ accordion with labor law Q&A + SEPE contact + disclaimer |
-| 10 | SettingsScreen | 513 | Profile, appearance, default break, notifications, clear data |
+| 7 | CalculatorScreen | 352 | Standalone what-if calculator. **In-screen title removed** — shown only in navigation header |
+| 8 | BonusesScreen | 457 | Christmas/Easter/Vacation calculators. "Κρατήσεις ΕΦΚΑ" labels (not "Εισφορές ΙΚΑ-ΕΦΚΑ") |
+| 9 | LegalInfoScreen | 189 | FAQ accordion + SEPE + disclaimer. **In-screen title removed**. Icon-only header. Correct 13,37% breakdown (was 13.87%) |
+| 10 | SettingsScreen | 539 | Profile, appearance, default break, notifications, clear data. **Hire date formatted display** (TouchableOpacity → native `formatDate(iso, 'long')` until user taps to edit) |
 | 11 | MoreScreen | 129 | Menu: Calculator, Bonuses, Legal, Settings, Cloud Backup, About |
 | 12 | AuthScreen | 470 | Supabase auth: sign in, sign up, forgot password with error handling |
 | 13 | CloudBackupScreen | 395 | Create/list/restore/delete cloud backups with status feedback |
-| 14 | AboutScreen | 225 | Version, developer, rate app, privacy policy, contact, "Made in Greece" |
+| 14 | AboutScreen | 225 | Version via `t('about.version', { appVersion: APP_CONFIG.VERSION })` — variable renamed from `version` to `appVersion` (i18next reserved-key fix) |
 
 ---
 
@@ -777,8 +791,20 @@ Persist: YES (AsyncStorage, key: 'myshift-premium')
 
 | Language | Code | Status | Lines |
 |----------|------|--------|-------|
-| Greek | el | Default, fallback | ~448 |
-| English | en | Complete | ~448 |
+| Greek | el | Default, fallback | 454 |
+| English | en | Complete | 454 |
+
+**Consistency audits applied:**
+- ΕΦΚΑ label standardized: "Κρατήσεις ΕΦΚΑ (13,37%)" everywhere (earnings breakdown, bonus breakdown, rateMode help) — old "Εισφορές ΙΚΑ-ΕΦΚΑ" / "Ασφαλιστικές εισφορές" / 13.87% typos removed
+- `rateMode.grossHelp` / `netHelp` → "Πριν/Μετά την κράτηση ΕΦΚΑ (13,37%)"
+- `earnings.regularInsurance` → "Κρατήσεις ΕΦΚΑ (13,37%)"
+- `earnings.overtimeInsurance` → "Κρατήσεις υπερωρίας (6,37%)"
+- `bonus.insurance` → "Κρατήσεις ΕΦΚΑ (13,37%)"
+- `calendar.todayButton` → "Σήμερα" (new key for quick-jump button)
+- `calendar.preview` → "Προεπισκόπηση" (future month label)
+- `calendar.futureDateMessage` → message for future-date entry block
+- `calendar.tapToAddHint` → hint shown in empty monthly summary
+- `about.version` uses `{{appVersion}}` placeholder (renamed from `{{version}}` — i18next reserved-key collision fix)
 
 **Setup:** i18next + react-i18next, initialized in `src/i18n/setup.ts`
 
@@ -900,7 +926,7 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 - **URL:** https://fiouri.github.io/myshift/privacy-policy.html *(LIVE)*
 - **Location:** `docs/privacy-policy.html`
 - **Developer:** Any WeCon
-- **Contact:** info@anywecon.com
+- **Contact:** fiouri.work@gmail.com
 - **Languages:** Greek + English (bilingual)
 - **GDPR Compliance:** Yes
 - **Data Collection:**
@@ -927,8 +953,8 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
     "android": {
       "adaptiveIcon": { "foregroundImage": "./assets/adaptive-icon.png", "backgroundColor": "#1B5E9E" },
       "edgeToEdgeEnabled": true,
-      "package": "com.anywecon.myshift",
-      "versionCode": 1
+      "package": "com.anywecon.myshiftapp",
+      "versionCode": 6
     },
     "plugins": ["expo-sqlite", "expo-localization", "expo-font",
       ["expo-notifications", { "color": "#1B5E9E" }],
@@ -974,19 +1000,50 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 5. **New Architecture:** `newArchEnabled: true` may cause issues with some third-party libraries
 6. **CSV Export:** Uses Greek column headers only (not localized)
 
-### Resolved Bugs (v2.0)
-- [x] **Night-hours pro-rata break fix** — Break minutes now deducted proportionally between night and regular hours instead of all from regular
-- [x] **weekEntries sync fix** — HomeScreen weekEntries now sync correctly when navigating back from DailyEntry
+### Resolved Bugs & Fixes (cumulative v2.0.0 → v2.0.6)
+
+**Calculation engine**
+- [x] **Night-hours pro-rata break fix** — Break minutes now deducted proportionally between night and regular hours instead of all from regular (see `calculateNightHours` in `calculations.ts:89-120`)
+- [x] **13.87% → 13.37% fix** — LegalInfoScreen FAQ had a digit typo in the ΕΦΚΑ breakdown; all screens now show correct 13,37% with the 5-component breakdown (σύνταξη 6,67% + υγεία 2,15% + επικουρική 3,25% + ανεργία 1,20% + πρόνοια 0,10%)
+
+**State & data flow**
+- [x] **weekEntries sync fix** — HomeScreen weekEntries now sync correctly via `useFocusEffect` when navigating back from DailyEntry
+- [x] **CalendarScreen stale data fix** — `useFocusEffect` reloads entries on focus, not just on month change
+- [x] **False "unsaved changes" dialog after Save** — DailyEntryScreen now uses `skipDirtyCheck` ref flag; the `beforeRemove` listener bails early when the user just saved/deleted (no more spurious Alert)
+- [x] **Error after Cancel+Save sequence** — Dirty flag reset path hardened via `initialValues` ref
+- [x] **HomeScreen showing 0 hours/earnings after save** — `useFocusEffect` with `reloadMonth`/`reloadWeek` from `useMonthData`/`useWeekData` hooks
+
+**UI layout & typography**
+- [x] **Preset buttons text overflow** — `ShiftPresetButton` now uses `numberOfLines={1}` + `adjustsFontSizeToFit` + `minimumFontScale={0.8}` on the time-range line; fits "Πρωί (06-14)" / "Απόγ. (14-22)" / "Βράδυ (22-06)" on budget-phone widths
+- [x] **HomeScreen profile card clipping** — `hourlyRateText` style has `paddingRight: 70` so the long "Ωρομίσθιο: €X.XX μικτά / €Y.YY καθαρά" line never collides with the edit (✏️) icon positioned top-right of the card
+- [x] **LegalInfoScreen duplicate title removed** — title shown only in the native navigation header (no in-screen H1)
+- [x] **CalculatorScreen duplicate title removed** — title shown only in the native navigation header
+
+**Navigation & screen headers**
+- [x] **All screen headers in Greek via i18n** — `AppNavigator.tsx` sets `options={{ title: t('entry.title') }}` etc. for Calendar, Reports, More, DailyEntry, Calculator, Bonuses, LegalInfo, Settings, Auth, CloudBackup, About, YearlyReport
+- [x] **Calendar "Σήμερα" button** — always visible under the month-nav row; disabled+dimmed when already on current month
+- [x] **Calendar swipe navigation** — `Gesture.Pan()` with 50px threshold switches months (right→prev, left→next) via `GestureDetector`
+- [x] **Future months unlocked** — Calendar lets users view future months with a "Προεπισκόπηση" label; tapping a future date shows `futureDateMessage` alert instead of navigating to DailyEntry
+
+**Settings**
+- [x] **Hire date formatted display** — SettingsScreen renders the stored ISO date as `formatDate(iso, 'long')` inside a `TouchableOpacity`; tapping reveals the raw `YYYY-MM-DD` TextInput for editing (`isEditingHireDate` state + ISO regex validator)
+
+**About**
+- [x] **Version placeholder rename** — `about.version` i18n key now uses `{{appVersion}}` instead of `{{version}}`; the latter collided with i18next's reserved internal `version` key and rendered empty in some locales
 
 ---
 
 ## 24. VERSION HISTORY
 
-| Version | Date | Notes |
-|---------|------|-------|
-| v1.x | 2025 | Original app: same Supabase, same AdMob, same EAS project |
-| v2.0.0 | 2026-04-04 | Complete rewrite: Expo SDK 54, React 19, RN 0.81, new calculation engine, new UI |
-| v2.0.0 | 2026-04-06 | Bug fixes: night-hours pro-rata break, weekEntries sync. Gross/net toggle complete. Privacy policy live. |
+| Version | versionCode | Date | Notes |
+|---------|-------------|------|-------|
+| v1.x | — | 2025 | Original app: same Supabase, same AdMob, same EAS project |
+| v2.0.0 | 1 | 2026-04-04 | **Phase 1 — Foundation.** Complete rewrite: Expo SDK 54, React 19, RN 0.81, new calculation engine, new UI, 72 files, 106 tests |
+| v2.0.0 | 2 | 2026-04-05 | **Phase 2 — Calculation fixes.** Night-hours pro-rata break fix. weekEntries sync fix. Gross/net toggle complete across Onboarding/Calculator/Settings |
+| v2.0.0 | 3 | 2026-04-06 | **Phase 3 — Privacy & Play Store prep.** Privacy policy live at fiouri.github.io/myshift. AdMob App Open ad. Play Store listing written (`docs/play-store-listing.md`). First production AAB build |
+| v2.0.0 | 4 | 2026-04-06 | **Phase 4 — Critical bug sweep.** DailyEntryScreen dirty-flag fix (no false "unsaved changes"), Cancel+Save sequence hardened, HomeScreen 0-hours-after-save fix via `useFocusEffect` |
+| v2.0.0 | 5 | 2026-04-07 | **Phase 5 — Calendar UX.** CalendarScreen stale-data fix (`useFocusEffect`), swipe gesture navigation, "Σήμερα" quick-jump button, future months unlocked with preview label + future-date entry block. Preview APK build |
+| v2.0.0 | 6 | 2026-04-20 | **Phase 6 — Consistency & polish.** All screen headers Greek via i18n. "Κρατήσεις ΕΦΚΑ (13,37%)" standardized everywhere. 13.87→13.37% typo fixed. LegalInfo + Calculator in-screen titles removed. Preset buttons `numberOfLines`+`adjustsFontSizeToFit`. HomeScreen profile card paddingRight. Settings hire-date formatted display. About `appVersion` rename. Keystore locked, production AAB ready for Play Store |
 
 ---
 
@@ -1005,18 +1062,29 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 
 ## 26. NEXT STEPS
 
-### Latest APK Build
-- **URL:** https://expo.dev/accounts/fiouri/projects/GreekPayrollApp/builds/38bafd60-8ce2-4d73-a76a-756d3a6b5939
-- **Profile:** preview (internal APK)
-- **Status:** Available for testing
+### Latest Builds
+| Profile | Format | versionCode | Status | Notes |
+|---------|--------|-------------|--------|-------|
+| preview | APK | 5 | ✅ | Internal testing APK (Phase 5 — Calendar UX verification) |
+| **production** | **AAB** | **6** | **✅ Ready to submit** | Phase 6 polish + keystore locked (SHA1 57:DD:CC:96:...) |
+
+### Play Store Listing
+- **Content:** `docs/play-store-listing.md` (Greek + English, titles, descriptions, metadata) ✅
+- **Screenshots guide:** `docs/screenshot-guide.md` (6 screenshots with demo data setup) ✅
+- **Privacy Policy:** https://fiouri.github.io/myshift/privacy-policy.html — LIVE ✅
+- **Package name:** `com.anywecon.myshiftapp` (final Play Store applicationId) ✅
+- **Keystore:** Connected & locked in EAS, SHA1 57:DD:CC:96:... ✅
 
 ### Immediate (v2.0 → Play Store)
 1. ~~Run `npx tsc --noEmit` — verify 0 errors~~ ✅
 2. ~~Run `npx jest` — verify all 106 tests pass~~ ✅
-3. ~~Run `eas build --profile preview` — test APK on device~~ ✅ (see link above)
-4. Run `eas build --profile production` — production AAB
-5. Create Play Store listing (screenshots, description, icon)
-6. Submit via `eas submit --profile production`
+3. ~~Run `eas build --profile preview` — test APK on device~~ ✅
+4. ~~Run `eas build --profile production` — production AAB (versionCode 6)~~ ✅
+5. ~~Create Play Store listing (descriptions, metadata)~~ ✅ (`docs/play-store-listing.md`)
+6. ~~Publish Privacy Policy~~ ✅ (fiouri.github.io/myshift/privacy-policy.html)
+7. ~~Lock keystore credentials in EAS~~ ✅ (SHA1 57:DD:CC:96:...)
+8. Take 6 screenshots (see `docs/screenshot-guide.md`)
+9. Upload AAB + screenshots to Play Console → submit for review
 
 ### Near-term (v2.1)
 - Native date/time picker (replace text input)
@@ -1035,4 +1103,4 @@ eas submit --profile production       # Submit to Play Store (requires play-stor
 
 ---
 
-> **Note:** This backup reflects the codebase as of 2026-04-06. All 72 files (12,834 lines) have been read and verified against this document.
+> **Note:** This backup reflects the codebase as of **2026-04-20** (versionCode 6). All 72 files (~13,000 lines) have been read and verified against this document. Latest fixes: Greek-header i18n, ΕΦΚΑ label consistency, 13.37% typo fix, preset button fit, Calendar "Σήμερα"/swipe/future-months, DailyEntry dirty-flag, HomeScreen+Settings+About polish. Production AAB (versionCode 6) + keystore + privacy policy + Play Store listing all ready for submission.
